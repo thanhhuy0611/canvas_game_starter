@@ -5,7 +5,7 @@ Created with love by: Charles Lee
 This is a simple Canvas-based game that requires a solid understanding of the principles of JavaScript programming to customize. 
 
 ## Video Walkthrough
-
+https://gifted-nobel-c80b46.netlify.com/
 Here's a walkthrough of implemented user stories.
 
 ![](http://g.recordit.co/cURdPMSHT2.gif)
