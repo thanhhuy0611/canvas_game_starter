@@ -8,12 +8,12 @@
 Here, we create and add our "canvas" to the page.
 We also load all of our images. 
 */
-
+let userName = "No name";
 let point = 0;
 let canvas;
 let ctx;
 //----check top core
-if (localStorage.getItem("top") ===  null) {
+if (localStorage.getItem("top") === null) {
   let applicationState = {
     isGameOver: false,
     hightScore: {
@@ -22,7 +22,7 @@ if (localStorage.getItem("top") ===  null) {
     },
     playSession: []
   };
-  localStorage.setItem("top",JSON.stringify(applicationState))
+  localStorage.setItem("top", JSON.stringify(applicationState))
 };
 //--------------------------
 canvas = document.createElement("canvas");
@@ -35,8 +35,8 @@ let bgReady, heroReady, monsterReady;
 let bgImage, heroImage, monsterImage;
 
 let startTime = Date.now();
-const SECONDS_PER_ROUND = 5;
-let elapsedTime = 0;
+const SECONDS_PER_ROUND = 10;
+let elapsedTime = 10;
 
 function loadImages() {
   bgImage = new Image();
@@ -102,19 +102,37 @@ function setupKeyboardListeners() {
     delete keysDown[key.keyCode];
   }, false);
 }
-
-
+//------function check rename
+function checkRename() {
+  if (document.getElementById('userName').value == "") {
+    userName = "No name";
+  } else {
+    addUserName();
+  }
+}
 /**
  *  Update game objects - change player position based on key pressed
  *  and check to see if the monster has been caught!
  *  
  *  If you change the value of 5, the player will move at a different rate.
  */
-//------reset function----
-document.getElementById('reset').addEventListener("click", function () {
+let play = document.getElementById('play').addEventListener("click", function () {
+  point = 0;
+  document.getElementById('yourPoint').innerHTML = point;
   startTime = Date.now();
   elapsedTime = SECONDS_PER_ROUND - Math.floor((Date.now() - startTime) / 1000);
+  document.getElementById("userName").disabled = true;
+  checkRename();
+  showUserName();
+  console.log(userName);
   update();
+});
+//------rename function----
+let reset = document.getElementById('rename').addEventListener("click", function () {
+  document.getElementById("userName").disabled = false;
+  document.getElementById('userName').value = "";
+  userName = "No name";
+  showUserName();
 });
 //--------------------
 let update = function () {
@@ -127,7 +145,6 @@ let update = function () {
   }
   if (isTimeOver) {
     elapsedTime = 0;
-    console.log("final point",topCoreHistory["Huy"]);
     newTopCore();
     return
     //--------------------
@@ -188,7 +205,12 @@ var render = function () {
   if (monsterReady) {
     ctx.drawImage(monsterImage, monsterX, monsterY);
   }
-  ctx.fillText(`Seconds Remaining: ${elapsedTime}`, 20, 100);
+  ctx.font = " 30px Arial"
+  if (elapsedTime <= 0) {
+    ctx.fillText("Game over!", canvas.width / 2 - 60, canvas.height / 2);
+  } else {
+    ctx.fillText(`Seconds Remaining: ${elapsedTime}`, 20, 100);
+  }
 };
 
 /**
@@ -224,16 +246,33 @@ main();
 //   console.log(time);
 // }
 //------------TopCore----
-
 let topCoreHistory = JSON.parse(localStorage.getItem("top"));
-document.getElementById('topCore').innerHTML = topCoreHistory["hightScore"]["score"] + " - Player: " + topCoreHistory["hightScore"]["user"];
+let topScore = topCoreHistory["hightScore"]["score"];
+let userNameTopScore = topCoreHistory["hightScore"]["user"];
+document.getElementById('topCore').innerHTML = topScore + " - Player: " + userNameTopScore;
 function newTopCore() {
-  if (point > topCoreHistory["hightScore"]["score"]) {
+  if (point > topScore) {
     topCoreHistory["hightScore"]["score"] = point;
-    document.getElementById('topCore').innerHTML = topCoreHistory["hightScore"]["score"] + " - Player: " + topCoreHistory["hightScore"]["user"];
-    console.log(topCoreHistory);
+    topCoreHistory["hightScore"]["user"] = userName;
+    document.getElementById('topCore').innerHTML = point + " - Player: " + userName;
     localStorage.setItem("top", JSON.stringify(topCoreHistory));
   }
 }
+//-------------------
+//--function add player name
+
+showUserName();
+function showUserName() {
+  document.getElementById("showUserName").innerHTML = userName;
+}
+function addUserName() {
+  userName = document.getElementById('userName').value;
+  document.getElementById("userName").disabled = true;
+}
+// document.getElementById('submit').addEventListener("click", function () {
+//   addUserName();
+//   showUserName();
+//   console.log(userName);
+// })
 
 

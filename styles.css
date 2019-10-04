@@ -1,0 +1,15 @@
+#info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+body{
+    background-color: rgb(29, 175, 78);
+}
+.container{
+    margin-top: 2%;
+    padding-top: 2%;
+    padding-bottom: 5%;
+    background-color: aliceblue;
+}

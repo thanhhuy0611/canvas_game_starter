@@ -3,17 +3,49 @@
 
 <head>
   <meta charset="utf-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css">
   <title>Best Game Ever!</title>
 </head>
 
 <body>
-  <div id="playArea"></div>
-  <button id="reset">Reset</button>
-  <h1>Your core: <span id="yourPoint">0</span></h1>
-  <h1>Highest core: <span id="topCore"></span></h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm">
+        <div id="playArea"></div>
+      </div>
+      <div class="col-sm" id="info">
+        <h1>Your core: <span id="yourPoint">0</span> - <span id="showUserName"></span></h1>
 
+        <div class="input-group input-group-lg">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-lg">Player</span>
+          </div>
+          <input placeholder="No name" id="userName" type="text" class="form-control" aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-lg">
+        </div>
+
+        <div class="button">
+          <button id="play" class="btn btn-danger">Play again</button>
+          <button id="rename" class="btn btn-primary">Rename</button>
+        </div>
+        <h2>Highest core: <span id="topCore"></span></h2>
+
+      </div>
+    </div>
+  </div>
 
   <script src="game.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>
