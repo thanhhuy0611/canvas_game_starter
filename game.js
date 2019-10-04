@@ -12,7 +12,19 @@ We also load all of our images.
 let point = 0;
 let canvas;
 let ctx;
-
+//----check top core
+if (localStorage.getItem("top") ===  null) {
+  let applicationState = {
+    isGameOver: false,
+    hightScore: {
+      user: "",
+      score: 0
+    },
+    playSession: []
+  };
+  localStorage.setItem("top",JSON.stringify(applicationState))
+};
+//--------------------------
 canvas = document.createElement("canvas");
 ctx = canvas.getContext("2d");
 canvas.width = 512;
@@ -212,13 +224,16 @@ main();
 //   console.log(time);
 // }
 //------------TopCore----
+
 let topCoreHistory = JSON.parse(localStorage.getItem("top"));
-document.getElementById('topCore').innerHTML = topCoreHistory["Huy"];
+document.getElementById('topCore').innerHTML = topCoreHistory["hightScore"]["score"] + " - Player: " + topCoreHistory["hightScore"]["user"];
 function newTopCore() {
-  if (point > topCoreHistory["Huy"]) {
-    topCoreHistory["Huy"] = point;
-    document.getElementById('topCore').innerHTML = topCoreHistory["Huy"];
+  if (point > topCoreHistory["hightScore"]["score"]) {
+    topCoreHistory["hightScore"]["score"] = point;
+    document.getElementById('topCore').innerHTML = topCoreHistory["hightScore"]["score"] + " - Player: " + topCoreHistory["hightScore"]["user"];
     console.log(topCoreHistory);
     localStorage.setItem("top", JSON.stringify(topCoreHistory));
   }
 }
+
+
