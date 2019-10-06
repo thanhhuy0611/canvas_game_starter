@@ -78,8 +78,8 @@ let monsterY;
 randomPlaceMonter();
 //--function random place monter
 function randomPlaceMonter() {
-  monsterX = Math.round(Math.random() * (canvas.width - 20)) + 20;
-  monsterY = Math.round(Math.random() * (canvas.height - 20)) + 20;
+  monsterX = Math.round(Math.random() * ((512-20) - 20)) + 20;
+  monsterY = Math.round(Math.random() * ((480-20) - 20)) + 20;
   console.log(monsterX);
   console.log(monsterY);
 }

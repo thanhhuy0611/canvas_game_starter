@@ -32,7 +32,7 @@ This code was reviewed by @username and @otherusername.
 
 ## Optional User Stories
 
-- [ ] Custom styling: the developer has replaced the images for the main character, monster, and background with something of her choice.  
+- [x] Custom styling: the developer has replaced the images for the main character, monster, and background with something of her choice.  
 - [x] The user cannot move her character off the screen. 
 - [ ] The user sees a few different types of monster each time a new monster is spawned. 
 - [ ] The monster moves around on its own each frame, and the user must chase it. 
