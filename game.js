@@ -44,20 +44,20 @@ function loadImages() {
     // show the background image
     bgReady = true;
   };
-  bgImage.src = "images/background.png";
+  bgImage.src = "images/images1.png";
   heroImage = new Image();
   heroImage.onload = function () {
     // show the hero image
     heroReady = true;
   };
-  heroImage.src = "images/hero.png";
+  heroImage.src = "images/batman1.png";
 
   monsterImage = new Image();
   monsterImage.onload = function () {
     // show the monster image
     monsterReady = true;
   };
-  monsterImage.src = "images/monster.png";
+  monsterImage.src = "images/joker.png";
 }
 
 /** 
