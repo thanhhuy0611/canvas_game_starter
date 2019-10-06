@@ -1,4 +1,4 @@
-# CoderSchool FTW - * Nam, the Monster Hunter *
+# CoderSchool FTW - * Huy, BATMAN & JOKER *
 
 Created with love by: Charles Lee
   
@@ -6,16 +6,9 @@ This is a simple Canvas-based game that requires a solid understanding of the pr
 
 ## Video Walkthrough
 [Link deloy on netlify](https://gifted-nobel-c80b46.netlify.com/)
-Here's a walkthrough of implemented user stories.
+
 
 ![](images/banner.png)
-
-## Code Reviews
-
-This code was reviewed by @username and @otherusername. 
-
-* [Link to PR #X](#) - reviewed by @username.
-* [Link to PR #Y](#) - reviewed by @otherusername.   
 
 
 ## Required User Stories
@@ -48,11 +41,6 @@ The following **additional** features are implemented:
 * [x] Auto update highest score when game is over.
 * [x] User can see highest score of previous play although they reloaded page.
 
-## Time Spent and Lessons Learned
-
-Time spent: **X** hours spent in total.
-
-Describe any challenges encountered while building the app.
 
 ## License
 
